@@ -3,11 +3,8 @@ declare(strict_types=1);
 
 namespace Acme\Part1\Chapter6;
 
-class Dollar
+class Dollar extends Money
 {
-    /** @var  int */
-    private $amount;
-
     /**
      * @param int $amount
      */
@@ -23,14 +20,5 @@ class Dollar
     public function times(int $multiplier): Dollar
     {
         return new Dollar($this->amount * $multiplier);
-    }
-
-    /**
-     * @param Dollar $object
-     * @return bool
-     */
-    public function equals(Dollar $object): bool
-    {
-        return ($this->amount === $object->amount);
     }
 }
