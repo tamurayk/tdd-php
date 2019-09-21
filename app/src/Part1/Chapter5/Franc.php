@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Acme\Part1\Chapter5;
 
-class Dollar
+class Franc
 {
     /** @var  int */
     private $amount;
@@ -18,18 +18,18 @@ class Dollar
 
     /**
      * @param int $multiplier
-     * @return Dollar
+     * @return Franc
      */
-    public function times(int $multiplier): Dollar
+    public function times(int $multiplier): Franc
     {
-        return new Dollar($this->amount * $multiplier);
+        return new Franc($this->amount * $multiplier);
     }
 
     /**
-     * @param Dollar $object
+     * @param Franc $object
      * @return bool
      */
-    public function equals(Dollar $object): bool
+    public function equals(Franc $object): bool
     {
         return ($this->amount === $object->amount);
     }
