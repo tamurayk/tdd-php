@@ -4,8 +4,21 @@ declare(strict_types=1);
 namespace Acme\Part1\Chapter9;
 
 abstract class Money{
-    /** @var  int */
+    /** @var int */
     protected $amount;
+
+    /** @var string */
+    protected $currency;
+
+    /**
+     * @param int $amount
+     * @param string $currency
+     */
+    public function __construct(int $amount, string $currency)
+    {
+        $this->amount = $amount;
+        $this->currency = $currency;
+    }
 
     /**
      * @param Money $money
@@ -23,7 +36,7 @@ abstract class Money{
      */
     static function dollar(int $amount): Money
     {
-        return new Dollar($amount);
+        return new Dollar($amount, 'USD');
     }
 
     /**
@@ -32,7 +45,7 @@ abstract class Money{
      */
     static function franc(int $amount): Money
     {
-        return new Franc($amount);
+        return new Franc($amount, 'CHF');
     }
 
     /**
@@ -40,4 +53,12 @@ abstract class Money{
      * @return Money
      */
     abstract function times(int $multiplier): Money;
+
+    /**
+     * @return string
+     */
+    public function currency(): string
+    {
+        return $this->currency;
+    }
 }
