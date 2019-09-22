@@ -5,12 +5,4 @@ namespace Acme\Part1\Chapter10;
 
 class Dollar extends Money
 {
-    /**
-     * @param int $multiplier
-     * @return Dollar
-     */
-    public function times(int $multiplier): Money
-    {
-        return Money::dollar($this->amount * $multiplier);
-    }
 }
