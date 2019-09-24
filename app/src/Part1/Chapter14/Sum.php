@@ -24,11 +24,13 @@ class Sum implements Expression {
      * 為替レートを適用した結果を返す
      *
      * @param string $to
+     * @param Bank $bank
      * @return Money
      */
-    public function reduce(string $to): Money //reduce = 式を単純な形に変形(簡約)するという意味
+    public function reduce(Bank $bank, string $to): Money //reduce = 式を単純な形に変形(簡約)するという意味
     {
         $amount = $this->augend->amount() + $this->addend->amount();
+
         return new Money($amount, $to);
     }
 }

@@ -5,8 +5,9 @@ namespace Acme\Part1\Chapter14;
 
 interface Expression { //Expression = 式
     /**
+     * @param Bank $bank
      * @param string $to
      * @return Money
      */
-    public function reduce(string $to): Money;
+    public function reduce(Bank $bank, string $to): Money;
 }
