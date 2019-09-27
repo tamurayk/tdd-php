@@ -29,7 +29,5 @@ $ docker exec -it tdd-php bash
 ## メモ
 
 - 各章の差分
-
-```
-$ diff -y app/src/Part1/Chapter14 app/src/Part1/Chapter15 | less -R
-```
+  - `$ diff -y app/src/Part1/Chapter14 app/src/Part1/Chapter15 | less -R`
+  - (なるべく) [コミットログ](https://github.com/tamurayk/tdd-php/commit/7334271177087a080e752859fac0297373dc75a6) でも見れるように作業した
