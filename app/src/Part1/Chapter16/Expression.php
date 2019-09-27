@@ -6,6 +6,12 @@ namespace Acme\Part1\Chapter16;
 interface Expression { //Expression = 式
 
     /**
+     * @param int $multiplier
+     * @return Expression
+     */
+    public function times(int $multiplier): Expression;
+
+    /**
      * @param Expression $addend
      * @return Expression
      */
