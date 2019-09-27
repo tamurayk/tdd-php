@@ -22,10 +22,10 @@ class Money implements Expression
     }
 
     /**
-     * @param Money $money
+     * @param Expression|Money $money
      * @return bool
      */
-    public function equals(Money $money): bool
+    public function equals(Expression $money): bool
     {
         return ($this->amount === $money->amount) &&
             ($this->currency === $money->currency);
@@ -51,9 +51,9 @@ class Money implements Expression
 
     /**
      * @param int $multiplier
-     * @return Money
+     * @return Expression
      */
-    public function times(int $multiplier): Money
+    public function times(int $multiplier): Expression
     {
         return new Money($this->amount * $multiplier, $this->currency);
     }
@@ -75,10 +75,10 @@ class Money implements Expression
     }
 
     /**
-     * @param Money $addend
-     * @return Sum
+     * @param Expression $addend
+     * @return Expression
      */
-    public function plus(Money $addend): Sum
+    public function plus(Expression $addend): Expression
     {
         return new Sum($this, $addend);
     }
