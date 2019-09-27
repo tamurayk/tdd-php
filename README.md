@@ -25,3 +25,11 @@ $ docker exec -it tdd-php bash
 $ docker exec -it tdd-php bash
 # vendor/bin/phpunit src/Part1/Chapter6
 ```
+
+## メモ
+
+- 各章の差分
+
+```
+$ diff -y app/src/Part1/Chapter14 app/src/Part1/Chapter15 | less -R
+```
