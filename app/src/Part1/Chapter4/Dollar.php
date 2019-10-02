@@ -8,7 +8,7 @@ class Dollar
     /**
      * @var int
      */
-    public $amount;
+    private $amount;
 
     /**
      * Dollar constructor.
