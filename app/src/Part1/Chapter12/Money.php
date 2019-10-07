@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Acme\Part1\Chapter12;
 
-class Money
+class Money implements Expression
 {
     /** @var int */
     protected $amount;
@@ -83,5 +83,14 @@ class Money
     public function __toString(): string
     {
         return $this->amount . ' ' . $this->currency;
+    }
+
+    /**
+     * @param Money $addend
+     * @return Expression
+     */
+    public function plus(Money $addend): Expression
+    {
+        return new Money($this->amount + $addend->amount, $this->currency);
     }
 }
