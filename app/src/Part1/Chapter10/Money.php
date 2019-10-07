@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Acme\Part1\Chapter10;
 
-abstract class Money
+class Money
 {
     /** @var int */
     protected $amount;
@@ -21,8 +21,14 @@ abstract class Money
      * @param int $multiplier
      * @return Money
      */
-    abstract function times(int $multiplier): Money;
+    public function times(int $multiplier): Money
+    {
+        return new Money($this->amount * $multiplier, $this->currency);
+    }
 
+    /**
+     * @return string
+     */
     public function currency(): string
     {
         return $this->currency;
@@ -36,8 +42,13 @@ abstract class Money
     {
         $money = $object;
 
-        return $this->amount == $money->amount
-            && get_class($this) == get_class($object);
+        return ($this->amount === $money->amount)
+            && ($this->currency === $money->currency);
+    }
+
+    public function toString(): string
+    {
+        return `{$this->amount} {$this->currency}`;
     }
 
     /**

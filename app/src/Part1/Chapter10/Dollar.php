@@ -6,11 +6,12 @@ namespace Acme\Part1\Chapter10;
 class Dollar extends Money
 {
     /**
-     * @param int $multiplier
-     * @return Money
+     * Dollar constructor.
+     * @param int $amount
+     * @param string $currency
      */
-    public function times(int $multiplier): Money
+    public function __construct(int $amount, string $currency)
     {
-        return Money::dollar($this->amount * $multiplier);
+        parent::__construct($amount, $currency);
     }
 }
