@@ -11,27 +11,15 @@ class Money
     /** @var string */
     protected $currency;
 
+    /**
+     * Money constructor.
+     * @param int $amount
+     * @param string $currency
+     */
     public function __construct(int $amount, string $currency)
     {
         $this->amount = $amount;
         $this->currency = $currency;
-    }
-
-    /**
-     * @param int $multiplier
-     * @return Money
-     */
-    public function times(int $multiplier): Money
-    {
-        return new Money($this->amount * $multiplier, $this->currency);
-    }
-
-    /**
-     * @return string
-     */
-    public function currency(): string
-    {
-        return $this->currency;
     }
 
     /**
@@ -44,11 +32,6 @@ class Money
 
         return ($this->amount === $money->amount)
             && ($this->currency === $money->currency);
-    }
-
-    public function toString(): string
-    {
-        return `{$this->amount} {$this->currency}`;
     }
 
     /**
@@ -75,5 +58,30 @@ class Money
     static function franc(int $amount): Money
     {
         return new Franc($amount, 'CHF');
+    }
+
+    /**
+     * @param int $multiplier
+     * @return Money
+     */
+    public function times(int $multiplier): Money
+    {
+        return new Money($this->amount * $multiplier, $this->currency);
+    }
+
+    /**
+     * @return string
+     */
+    public function currency(): string
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->amount . ' ' . $this->currency;
     }
 }
