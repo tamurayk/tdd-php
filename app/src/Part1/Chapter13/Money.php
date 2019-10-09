@@ -42,7 +42,7 @@ class Money implements Expression
      *   Factory Method(= オブジェクトを作成するメソッド)
      *
      */
-    static function dollar(int $amount): Money
+    public static function dollar(int $amount): Money
     {
         return new Money($amount, 'USD');
     }
@@ -55,7 +55,7 @@ class Money implements Expression
      *   Factory Method(= オブジェクトを作成するメソッド)
      *
      */
-    static function franc(int $amount): Money
+    public static function franc(int $amount): Money
     {
         return new Money($amount, 'CHF');
     }
@@ -87,10 +87,27 @@ class Money implements Expression
 
     /**
      * @param Money $addend
-     * @return Expression
+     * @return Sum
      */
-    public function plus(Money $addend): Expression
+    public function plus(Money $addend): Sum
     {
-        return new Money($this->amount + $addend->amount, $this->currency);
+        return new Sum($this, $addend);
+    }
+
+    /**
+     * @return int
+     */
+    public function amount(): int
+    {
+        return $this->amount;
+    }
+
+    /**
+     * @param string $to
+     * @return Money
+     */
+    public function reduce(string $to): Money
+    {
+        return $this;
     }
 }
