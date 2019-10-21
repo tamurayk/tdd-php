@@ -31,3 +31,29 @@ $ docker exec -it tdd-php bash
 - 各章の差分
   - `$ diff -y app/src/Part1/Chapter14 app/src/Part1/Chapter15 | less -R`
   - (なるべく) [コミットログ](https://github.com/tamurayk/tdd-php/commit/7334271177087a080e752859fac0297373dc75a6) でも見れるように作業した
+
+
+# 第Ⅱ部
+
+## 環境構築
+
+```
+$ brew install python3
+$ xcode-select --install
+$ brew install pyenv
+```
+
+```
+/// ~/.bash_profile に追加
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+```
+
+```
+$ pyenv install --list
+$ pyenv install 3.8.0
+$ pyenv local 3.8.0
+```
+
