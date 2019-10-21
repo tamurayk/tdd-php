@@ -23,12 +23,11 @@ class Pair
     }
 
     /**
-     * @param $object
+     * @param Pair $pair
      * @return bool
      */
-    public function equals($object): bool
+    public function equals($pair): bool
     {
-        $pair = $object;
         return $this->from === $pair->from && $this->to === $pair->to;
     }
 

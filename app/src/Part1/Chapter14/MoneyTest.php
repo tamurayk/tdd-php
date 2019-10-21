@@ -75,6 +75,6 @@ class MoneyTest extends TestCase
     }
 
     public function testIdentityRate(){
-        $this->assertEquals(1, (new Bank())->rate('USD', 'USD'));
+        $this->assertSame(1, (new Bank())->rate('USD', 'USD'));
     }
 }
