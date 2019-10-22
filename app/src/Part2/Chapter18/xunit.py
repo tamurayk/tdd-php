@@ -5,9 +5,10 @@ class TestCase:
         method = getattr(self, self.name)
         method()
 
+# 「テストが走ったかどうかを答えるテスト」のテスト対象クラス
 class WasRun(TestCase):
     def __init__(self, name):
-        self.wasRun = None
+        self.wasRun = None # Python では None が null に相当。評価結果が 偽 となる
         super().__init__(name)
     def testMethod(self):
         self.wasRun = 1
