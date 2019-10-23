@@ -1,9 +1,12 @@
 class TestCase:
     def __init__(self, name):
+        # Pluggable Selector パターン
+        #  why: インスタンス毎に異なる振る舞いをさせる
+        #  how: リフレクションで動的にメソッドの起動を行う
         self.name = name
     def run(self):
-        method = getattr(self, self.name)
-        method()
+        method = getattr(self, self.name) # Pluggable Selector パターン
+        method() # Pluggable Selector パターン
 
 # 「テストが走ったかどうかを答えるテスト」のテスト対象クラス
 class WasRun(TestCase):
