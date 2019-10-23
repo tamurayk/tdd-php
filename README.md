@@ -15,15 +15,8 @@ $ docker exec -it tdd-php bash
 ## テスト実行
 
 ```
-/// Chapter 1-5
 $ docker exec -it tdd-php bash
-# vendor/bin/phpunit tests/TestCase/Part1/Chapter5
-```
-
-```
-/// Chapter 6 
-$ docker exec -it tdd-php bash
-# vendor/bin/phpunit src/Part1/Chapter6
+# vendor/bin/phpunit src/Part1/Chapter1
 ```
 
 ## メモ
