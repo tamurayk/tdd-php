@@ -6,6 +6,12 @@ namespace Acme\Part1\Chapter16;
 interface Expression
 {
     /**
+     * @param int $multiplier
+     * @return Expression
+     */
+    public function times(int $multiplier): Expression;
+
+    /**
      * @param Expression $addend
      * @return Expression
      */
@@ -17,10 +23,4 @@ interface Expression
      * @return Money
      */
     public function reduce(Bank $bank, string $to): Money;
-
-    /**
-     * @param int $multiplier
-     * @return Expression
-     */
-    public function times(int $multiplier): Expression;
 }
