@@ -17,4 +17,10 @@ interface Expression
      * @return Money
      */
     public function reduce(Bank $bank, string $to): Money;
+
+    /**
+     * @param int $multiplier
+     * @return Expression
+     */
+    public function times(int $multiplier): Expression;
 }
