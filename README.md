@@ -2,6 +2,8 @@
 
 https://www.amazon.co.jp/dp/4274217884/
 
+# 第Ⅰ部 (PHP)
+
 ## 環境構築
 
 ```
@@ -33,7 +35,7 @@ $ docker exec -it tdd-php bash
   - (なるべく) [コミットログ](https://github.com/tamurayk/tdd-php/commit/7334271177087a080e752859fac0297373dc75a6) でも見れるように作業した
 
 
-# 第Ⅱ部
+# 第Ⅱ部 (Python)
 
 ## 環境構築
 
@@ -57,3 +59,8 @@ $ pyenv install 3.8.0
 $ pyenv local 3.8.0
 ```
 
+## テスト実行
+
+```
+$ python app/src/Part2/Chapter18/xunit.py
+```
