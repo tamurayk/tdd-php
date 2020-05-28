@@ -5,10 +5,13 @@ namespace Acme\Part1\Chapter5;
 
 class Franc
 {
-    /** @var  int */
+    /**
+     * @var int
+     */
     private $amount;
 
     /**
+     * Franc constructor.
      * @param int $amount
      */
     public function __construct(int $amount)
@@ -31,6 +34,8 @@ class Franc
      */
     public function equals(Franc $object): bool
     {
-        return ($this->amount === $object->amount);
+        $dollar = $object;
+
+        return $this->amount == $dollar->amount;
     }
 }

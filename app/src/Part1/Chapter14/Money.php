@@ -12,6 +12,7 @@ class Money implements Expression
     protected $currency;
 
     /**
+     * Money constructor.
      * @param int $amount
      * @param string $currency
      */
@@ -22,20 +23,26 @@ class Money implements Expression
     }
 
     /**
-     * @param Money $money
+     * @param Money $object
      * @return bool
      */
-    public function equals(Money $money): bool
+    public function equals(Money $object): bool
     {
-        return ($this->amount === $money->amount) &&
-            ($this->currency === $money->currency);
+        $money = $object;
+
+        return ($this->amount === $money->amount)
+            && ($this->currency === $money->currency);
     }
 
     /**
      * @param int $amount
      * @return Money
+     *
+     * note:
+     *   Factory Method(= オブジェクトを作成するメソッド)
+     *
      */
-    static function dollar(int $amount): Money
+    public static function dollar(int $amount): Money
     {
         return new Money($amount, 'USD');
     }
@@ -43,8 +50,12 @@ class Money implements Expression
     /**
      * @param int $amount
      * @return Money
+     *
+     * note:
+     *   Factory Method(= オブジェクトを作成するメソッド)
+     *
      */
-    static function franc(int $amount): Money
+    public static function franc(int $amount): Money
     {
         return new Money($amount, 'CHF');
     }
@@ -69,9 +80,9 @@ class Money implements Expression
     /**
      * @return string
      */
-    public function toString(): string
+    public function __toString(): string
     {
-        return `{$this->amount} {$this->currency}`;
+        return $this->amount . ' ' . $this->currency;
     }
 
     /**

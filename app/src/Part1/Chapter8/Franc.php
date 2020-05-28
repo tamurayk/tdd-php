@@ -6,6 +6,7 @@ namespace Acme\Part1\Chapter8;
 class Franc extends Money
 {
     /**
+     * Franc constructor.
      * @param int $amount
      */
     public function __construct(int $amount)
@@ -15,7 +16,7 @@ class Franc extends Money
 
     /**
      * @param int $multiplier
-     * @return Franc
+     * @return Money
      */
     public function times(int $multiplier): Money
     {

@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace Acme\Part1\Chapter11;
 
-class Money{
+class Money
+{
     /** @var int */
     protected $amount;
 
@@ -11,6 +12,7 @@ class Money{
     protected $currency;
 
     /**
+     * Money constructor.
      * @param int $amount
      * @param string $currency
      */
@@ -21,18 +23,24 @@ class Money{
     }
 
     /**
-     * @param Money $money
+     * @param Money $object
      * @return bool
      */
-    public function equals(Money $money): bool
+    public function equals(Money $object): bool
     {
-        return ($this->amount === $money->amount) &&
-            ($this->currency === $money->currency);
+        $money = $object;
+
+        return ($this->amount === $money->amount)
+            && ($this->currency === $money->currency);
     }
 
     /**
      * @param int $amount
      * @return Money
+     *
+     * note:
+     *   Factory Method(= オブジェクトを作成するメソッド)
+     *
      */
     static function dollar(int $amount): Money
     {
@@ -42,6 +50,10 @@ class Money{
     /**
      * @param int $amount
      * @return Money
+     *
+     * note:
+     *   Factory Method(= オブジェクトを作成するメソッド)
+     *
      */
     static function franc(int $amount): Money
     {
@@ -68,8 +80,8 @@ class Money{
     /**
      * @return string
      */
-    public function toString(): string
+    public function __toString(): string
     {
-        return `{$this->amount} {$this->currency}`;
+        return $this->amount . ' ' . $this->currency;
     }
 }

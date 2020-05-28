@@ -1,11 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Acme\Tests\TestCase\Part1\Chapter5;
+namespace Acme\Part1\Chapter5;
 
 use PHPUnit\Framework\TestCase;
-use Acme\Part1\Chapter5\Dollar;
-use Acme\Part1\Chapter5\Franc;
 
 class MoneyTest extends TestCase
 {
@@ -13,8 +11,8 @@ class MoneyTest extends TestCase
     {
         $five = new Dollar(5);
 
-        $this->assertTrue((new Dollar(10))->equals($five->times(2)));
-        $this->assertTrue((new Dollar(15))->equals($five->times(3)));
+        $this->assertEquals(new Dollar(10), $five->times(2));
+        $this->assertEquals(new Dollar(15), $five->times(3));
     }
 
     public function testEquality()
@@ -27,8 +25,7 @@ class MoneyTest extends TestCase
     {
         $five = new Franc(5);
 
-        $this->assertTrue((new Franc(10))->equals($five->times(2)));
-        $this->assertTrue((new Franc(15))->equals($five->times(3)));
+        $this->assertEquals(new Franc(10), $five->times(2));
+        $this->assertEquals(new Franc(15), $five->times(3));
     }
-
 }

@@ -6,6 +6,7 @@ namespace Acme\Part1\Chapter6;
 class Dollar extends Money
 {
     /**
+     * Dollar constructor.
      * @param int $amount
      */
     public function __construct(int $amount)

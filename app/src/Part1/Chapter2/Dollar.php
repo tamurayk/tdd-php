@@ -5,10 +5,13 @@ namespace Acme\Part1\Chapter2;
 
 class Dollar
 {
-    /** @var  int */
+    /**
+     * @var int
+     */
     public $amount;
 
     /**
+     * Dollar constructor.
      * @param int $amount
      */
     public function __construct(int $amount)

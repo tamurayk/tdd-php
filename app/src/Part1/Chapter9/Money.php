@@ -3,17 +3,14 @@ declare(strict_types=1);
 
 namespace Acme\Part1\Chapter9;
 
-abstract class Money{
+abstract class Money
+{
     /** @var int */
     protected $amount;
 
     /** @var string */
     protected $currency;
 
-    /**
-     * @param int $amount
-     * @param string $currency
-     */
     public function __construct(int $amount, string $currency)
     {
         $this->amount = $amount;
@@ -21,18 +18,35 @@ abstract class Money{
     }
 
     /**
-     * @param Money $money
+     * @param int $multiplier
+     * @return Money
+     */
+    abstract function times(int $multiplier): Money;
+
+    public function currency(): string
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param Money $object
      * @return bool
      */
-    public function equals(Money $money): bool
+    public function equals(Money $object): bool
     {
-        return ($this->amount === $money->amount) &&
-            (get_class($this) === get_class($money));
+        $money = $object;
+
+        return $this->amount == $money->amount
+            && get_class($this) == get_class($object);
     }
 
     /**
      * @param int $amount
      * @return Money
+     *
+     * note:
+     *   Factory Method(= オブジェクトを作成するメソッド)
+     *
      */
     static function dollar(int $amount): Money
     {
@@ -42,23 +56,13 @@ abstract class Money{
     /**
      * @param int $amount
      * @return Money
+     *
+     * note:
+     *   Factory Method(= オブジェクトを作成するメソッド)
+     *
      */
     static function franc(int $amount): Money
     {
         return new Franc($amount, 'CHF');
-    }
-
-    /**
-     * @param int $multiplier
-     * @return Money
-     */
-    abstract function times(int $multiplier): Money;
-
-    /**
-     * @return string
-     */
-    public function currency(): string
-    {
-        return $this->currency;
     }
 }

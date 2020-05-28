@@ -10,7 +10,7 @@ class Bank
      * @param string $to
      * @return Money
      */
-    public function reduce(Expression $source, string $to)
+    public function reduce(Expression $source, string $to): Money
     {
         return Money::dollar(10);
     }

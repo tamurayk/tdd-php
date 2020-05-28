@@ -5,10 +5,13 @@ namespace Acme\Part1\Chapter4;
 
 class Dollar
 {
-    /** @var  int */
+    /**
+     * @var int
+     */
     private $amount;
 
     /**
+     * Dollar constructor.
      * @param int $amount
      */
     public function __construct(int $amount)
@@ -26,11 +29,13 @@ class Dollar
     }
 
     /**
-     * @param Dollar $dollar
+     * @param Dollar $object
      * @return bool
      */
-    public function equals(Dollar $dollar): bool
+    public function equals(Dollar $object): bool
     {
-        return ($this->amount === $dollar->amount);
+        $dollar = $object;
+
+        return $this->amount == $dollar->amount;
     }
 }

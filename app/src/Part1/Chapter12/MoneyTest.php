@@ -25,8 +25,8 @@ class MoneyTest extends TestCase
 
     public function testCurrency()
     {
-        $this->assertEquals('USD', Money::dollar(1)->currency());
-        $this->assertEquals("CHF", Money::franc(1)->currency());
+        $this->assertSame('USD', Money::dollar(1)->currency());
+        $this->assertSame('CHF', Money::franc(1)->currency());
     }
 
     public function testSimpleAddition()
@@ -36,6 +36,6 @@ class MoneyTest extends TestCase
         $bank = new Bank();
         $reduced = $bank->reduce($sum, 'USD');
 
-        $this->assertEquals(Money::dollar(10), $reduced);
+        $this->assertEquals(Money::dollar(10), $reduced); //note: ローカル変数 reduced は Expression に為替レートを適用した換算結果
     }
 }

@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace Acme\Part1\Chapter14;
 
-class Sum implements Expression {
+class Sum implements Expression
+{
     /** @var Money */
     public $augend;
 
@@ -11,6 +12,7 @@ class Sum implements Expression {
     public $addend;
 
     /**
+     * Sum constructor.
      * @param Money $augend
      * @param Money $addend
      */
@@ -21,17 +23,14 @@ class Sum implements Expression {
     }
 
     /**
-     * 為替レートを適用した結果を返す
-     *
-     * @param string $to
      * @param Bank $bank
+     * @param string $to
      * @return Money
      */
-    public function reduce(Bank $bank, string $to): Money //reduce = 式を単純な形に変形(簡約)するという意味
+    public function reduce(Bank $bank, string $to): Money
     {
         $amount = $this->augend->amount() + $this->addend->amount();
 
         return new Money($amount, $to);
     }
 }
-

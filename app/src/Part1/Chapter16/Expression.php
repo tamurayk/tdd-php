@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Acme\Part1\Chapter16;
 
-interface Expression { //Expression = 式
-
+interface Expression
+{
     /**
      * @param int $multiplier
      * @return Expression

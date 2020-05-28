@@ -5,13 +5,14 @@ namespace Acme\Part1\Chapter15;
 
 class Sum implements Expression
 {
-    /** @var  Expression */
+    /** @var Expression */
     public $augend;
 
-    /** @var  Expression */
+    /** @var Expression */
     public $addend;
 
     /**
+     * Sum constructor.
      * @param Expression $augend
      * @param Expression $addend
      */
@@ -22,15 +23,13 @@ class Sum implements Expression
     }
 
     /**
-     * 為替レートを適用した結果を返す
-     *
-     * @param string $to
      * @param Bank $bank
+     * @param string $to
      * @return Money
      */
-    public function reduce(Bank $bank, string $to): Money //reduce = 式を単純な形に変形(簡約)するという意味
+    public function reduce(Bank $bank, string $to): Money
     {
-        $amount = $this->addend->reduce($bank, $to)->amount() + $this->augend->reduce($bank, $to)->amount();
+        $amount = $this->augend->reduce($bank, $to)->amount() + $this->addend->reduce($bank, $to)->amount();
 
         return new Money($amount, $to);
     }
@@ -44,4 +43,3 @@ class Sum implements Expression
         return null;
     }
 }
-

@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace Acme\Part1\Chapter13;
 
-interface Expression { //Expression = 式
+interface Expression
+{
     /**
      * @param string $to
      * @return Money

@@ -3,16 +3,20 @@ declare(strict_types=1);
 
 namespace Acme\Part1\Chapter6;
 
-class Money{
-    /** @var  int */
+class Money
+{
+    /** @var int */
     protected $amount;
 
+
     /**
-     * @param Money $money
+     * @param Money $object
      * @return bool
      */
-    public function equals(Money $money): bool
+    public function equals(Money $object): bool
     {
-        return ($this->amount === $money->amount);
+        $money = $object;
+
+        return $this->amount == $money->amount;
     }
 }
